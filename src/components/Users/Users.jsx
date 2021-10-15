@@ -32,7 +32,7 @@ const Users = () => {
         <div>
             <Pagination page= {page} totalCount={totalCount} pageButtons={handlePageChange} />
             <div className={styles.kontainer}>
-            <Cards items={usersList}/>
+            <Cards items={usersList} type="users"/>
             </div>
         </div>
     )

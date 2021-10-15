@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Users from './components/Users';
 import Repos from './components/Repos';
 import SingleUser from './components/sherd/SingleUser';
+import SingleRepo from './components/sherd/SingleRepo';
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
         <Switch>
         <Route path="/users/:id">
             <SingleUser />
+          </Route>
+          
+        <Route path="/repos/:id">
+            <SingleRepo />
           </Route>
           <Route exact path="/">
             <p>"tun"</p>

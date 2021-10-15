@@ -29,12 +29,12 @@ const Repos=()=>{
             .catch(e => alert("Users not found"))
         }
     },[params?.value,getRepos,page] )
-
+console.log(usersList,456)
     return (
         <div>
             <Pagination page= {page} totalCount={totalCount} pageButtons={handlePageChange} />
             <div className={styles.kontainer}>
-            <Cards items={usersList}/> 
+            <Cards items={usersList} type="repos"/> 
             </div>
         </div>
     )

@@ -11,8 +11,14 @@ const api = {
             return res.json()
           })
     },
-    getSingleUserApi(id=83531935){
-      return fetch(`https://api.github.com/search/users? id=${id}`)
+    getSingleUserApi(id){
+      return fetch(`https://api.github.com/user/${id}`)
+       .then(res => {
+            return res.json() 
+        })   
+    },
+    getSingleRepoApi(name){
+      return fetch(`https://api.github.com/repos/${name}`)
        .then(res => {
             return res.json() 
         })   
