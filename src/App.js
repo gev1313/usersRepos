@@ -7,12 +7,16 @@ import {
 import Header from "./components/Header";
 import Users from './components/Users';
 import Repos from './components/Repos';
+import SingleUser from './components/sherd/SingleUser';
 
 function App() {
   return (
     <Router>
       <Header />
         <Switch>
+        <Route path="/users/:id">
+            <SingleUser />
+          </Route>
           <Route exact path="/">
             <p>"tun"</p>
           </Route>
@@ -22,10 +26,7 @@ function App() {
           <Route path="/repos">
             <Repos/>
           </Route>
-          <Route path="/users/id">
-            <getSingleUser/>
-            
-          </Route>
+       
         </Switch>
     </Router>
   );

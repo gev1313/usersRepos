@@ -1,18 +1,18 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import {Link} from "react-router-dom";
 import styles from "./Cards.module.css"
-import SingleUser from "../SingleUser";
 
 const Cards = ({items}) => {
     return (
             items.map(item => (
               
-              <div onClick= {SingleUser}   className ={styles.cards}>
+              <Link to={`users/${item.id}`} className ={styles.cards}>
                  <div >
                     <img src={item.avatar_url||item.owner.avatar_url} alt="User img" className={styles.img}/>
                     <p className={styles.name}>{item.login||item.name}</p>
                  </div>
-              </div>
+              </Link>
             ))
     )
 }

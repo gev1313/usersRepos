@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 import styles from "./SingleUser.module.css"
 
-const getSingleUser=()=>{
-
-
-alert('kov')
+const SingleUser=()=>{
+ return (
+     <div>
+         <p>gfdhjdjhdk</p>
+     </div>
+ )
 }
-export default getSingleUser
+export default SingleUser
 
 
