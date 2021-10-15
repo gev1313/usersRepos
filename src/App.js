@@ -24,6 +24,7 @@ function App() {
           </Route>
           <Route path="/users/id">
             <getSingleUser/>
+            
           </Route>
         </Switch>
     </Router>
