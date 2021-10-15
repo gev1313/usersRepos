@@ -1,0 +1,149 @@
+/* p {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap{
+    display: flex;
+    justify-content: space-between;
+}
+
+img{
+   width: 200px;
+}
+
+img:hover {
+    width: 60%;
+} */
+
+
+
+
+
+body{
+    margin: 0;
+}
+
+.names{
+display: flex;
+}
+
+.names:hover{
+    display: flex;
+    transition: 3s ease;
+    transform: scale(1,2);
+}
+
+.name1{
+    display: flex;
+    opacity: 0,1;
+    border: 2px solid red;   
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    background:url('https://lh3.googleusercontent.com/e8ZiPIy5E75qiVWDx1xWEXMY8R9Gga9XsQpR_vNX33QMYwGJyFUQT8Y0LZxcvr7EMBq5onE=s139')
+}   
+
+
+
+.name2{
+    display: flex;
+    border: 2px solid red;   
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+   
+    background:url('https://lh3.googleusercontent.com/e8ZiPIy5E75qiVWDx1xWEXMY8R9Gga9XsQpR_vNX33QMYwGJyFUQT8Y0LZxcvr7EMBq5onE=s139')
+    
+}
+
+.name3{ 
+    display: flex;
+    border: 2px solid red;      
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    background:url('https://1001golos.ru/uploads/ratings/571000/570279/pic2.jpg');
+    background-size: cover;
+}
+   
+
+
+
+.header{
+    min-height: 170px;
+    background-color: yellow;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: gvid 2s infinite alternate;
+    
+}
+
+@keyframes gvid {
+    from{color: yellow;
+
+    }
+
+    to{
+        color: rgb(78, 6, 10)
+
+    }
+
+}
+
+
+#inputvrap{
+    margin-left: 10px;
+}
+
+
+.conteyner{
+    display: flex;
+    
+}
+
+.mrg{
+    color: rgb(104, 19, 4);
+    background-color: rgba(0, 128, 49, 0.384);
+    width: 35%;
+    min-height: 250px;
+    overflow: scroll;
+    animation: gvid 2s infinite alternate;
+}
+ 
+
+.mrg :hover{
+    background: rgb(58, 112, 228);
+    transition: 3s ease;
+    transform: scale(1,2);
+} 
+
+.Levon{
+    background-color: rgb(71, 255, 86);
+    width: 70%;
+  position: relative;
+}
+
+@media screen and (max-width: 580px) {
+    .Levon{
+        background: rgb(179, 189, 233);
+        max-width: 600px;
+        
+    }
+}
+
+.nk {
+
+position:relative;
+
+height: 100vh;
+}
+.nk img{
+    max-width: 40%;
+}
