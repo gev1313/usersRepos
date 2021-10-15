@@ -1,0 +1,38 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(252, 252, 252);
+    padding: 20px;
+}
+
+.ButtonUsers{
+    background-color:rgb(243, 78, 13);
+width: 120px;
+height: 30px;
+border-radius: 8px;
+border-color: orangered;
+}
+
+.ButtonRepos{
+    background-color:rgb(243, 78, 13);
+    width: 120px;
+    height: 30px;
+    border-radius: 8px;
+    border-color: orangered;
+}
+
+.ContainerButtonUsersRepos{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px 50px;
+
+}
+
+.logo{
+    height: 90px;
+    width: 100%;
+}
+
+.active{
+    background: red !important;
+  }
