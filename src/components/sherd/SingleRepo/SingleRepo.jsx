@@ -13,8 +13,9 @@ useEffect( async ()=> {
     setIsLoading(true)
     try{
       const data = await getSingleRepoApi(history.location.pathname.slice(7))
-      console.log(data,55555555555555);
-      setSingleRepo(data)
+      console.log(data,555555);
+     
+      setSingleRepo(data.owner)
       setIsLoading(false)
     }catch(err){
         setIsLoading(false)
@@ -30,13 +31,15 @@ useEffect( async ()=> {
 const onBack = () => {
     history.goBack()
 }
+
  return (
-     <div>
+     <div className={styles.container}>
         {isLoading ? <p>Loading...</p> : (
-        <div>
-            <button onClick={onBack}>Back</button>
-            <p>{singleRepo.name}</p>
-            {/* <img src={singleRepo.avatar_url} /> */}
+        <div className= {styles.cards}>
+             <p className={styles.x} onClick={()=>onBack()}>X</p>
+            <button className={styles.back} onClick={onBack}>Back</button>
+            <img className={styles.img}src={singleRepo.avatar_url} />
+           <p className={styles.name}>{singleRepo.login}</p>
         </div>
         )}
      </div>

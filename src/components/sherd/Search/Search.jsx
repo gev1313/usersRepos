@@ -5,6 +5,19 @@ import cn from "classnames";
 import { Link, useLocation } from "react-router-dom";
 import { urlParams } from "../../../utils/utils";
 
+// const SearchReducer = (state,action,{type, className}) => {
+//     const { search } = useLocation();
+//     const params = urlParams(search)
+//     const [inputValue, setInputValue] = useState(params.value || "")
+//   if(action.type==='search'){
+//       return {
+//           ...state,
+
+          
+//       }
+//   }
+
+
 const Search = ({type, className}) => {
     const { search } = useLocation();
     const params = urlParams(search)

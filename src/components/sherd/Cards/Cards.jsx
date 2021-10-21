@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 import styles from "./Cards.module.css"
 
-const Cards = ({items,type}) => {
+const Cards = ({items, type}) => {
     return (
             items.map(item => (
               <Link to={`${type}/${type === "users" ? item.id : item.full_name }`} className ={styles.cards}>

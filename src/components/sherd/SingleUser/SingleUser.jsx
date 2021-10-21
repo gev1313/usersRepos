@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useHistory, useParams } from "react-router"
 import api from "../../../api"
+import { getSinglUsersRequest } from "../../../store/action-creaters/usersActionsCreator"
 import styles from "./SingleUser.module.css"
 
 const SingleUser=()=>{
@@ -9,22 +12,11 @@ const SingleUser=()=>{
     const { getSingleUserApi } = api
     const { id } = useParams()
     const history = useHistory()
+    const dispatch = useDispatch()
+    const usersData = useSelector(state => state.usersReducer)
 
-useEffect( async ()=> {
-    setIsLoading(true)
-    try{
-      const data = await getSingleUserApi(id)
-      setSingleUser(data)
-      setIsLoading(false)
-    }catch(err){
-        setIsLoading(false)
-        console.log(err);
-    }
-
-    // getSingleUserApi(id).then(data => {
-    //     console.log(data)
-    // }).catch(error => console.log(error))
-
+useEffect( ()=> {
+    dispatch(getSinglUsersRequest(id))
 },[])
 
 const onBack = () => {
@@ -33,12 +25,16 @@ const onBack = () => {
 
     console.log(singleUser);
  return (
-     <div>
-        {isLoading ? <p>Loading...</p> : (
+     <div className={styles.container}>
+        {!usersData.resultsFlag ? 
         <div>
-            <button onClick={onBack}>Back</button>
-            <p>{singleUser.login}</p>
-            <img src={singleUser.avatar_url} />
+            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQXv2CnDyvkyhiBLXYcreFhuw9QRQk7l7nog&usqp=CAU' />
+        </div> : (
+        <div className= {styles.cards}>
+            <p className={styles.x} onClick={()=>onBack()}>X</p>
+            <button className={styles.back} onClick={onBack}>Back</button>
+            <img className={styles.img} src={usersData.singleUser.avatar_url} />
+            <p className={styles.name}>{usersData.singleUser.login}</p>
         </div>
         )}
      </div>
