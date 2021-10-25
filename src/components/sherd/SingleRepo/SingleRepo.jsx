@@ -1,45 +1,35 @@
 import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useHistory, useParams } from "react-router"
-import api from "../../../api"
+import { getSinglReposRequest } from "../../../store/action-creaters/reposActionCreator"
 import styles from "./SingleRepo.module.css"
 
 const SingleRepo=()=>{
-    const [ singleRepo, setSingleRepo] = useState({})
-    const [ isLoading, setIsLoading] = useState(false)
-    const { getSingleRepoApi } = api
-    const params = useParams()
+   
     const history = useHistory()
-useEffect( async ()=> {
-    setIsLoading(true)
-    try{
-      const data = await getSingleRepoApi(history.location.pathname.slice(7))
-      console.log(data,555555);
-     
-      setSingleRepo(data.owner)
-      setIsLoading(false)
-    }catch(err){
-        setIsLoading(false)
-        console.log(err);
-    }
+    const dispatch = useDispatch()
+    const reposData = useSelector(state => state.reposReducer)
+    const id = history.location.pathname.split("repos")[1]
 
-    // getSingleUserApi(id).then(data => {
-    //     console.log(data)
-    // }).catch(error => console.log(error))
-
+useEffect( ()=> {
+    dispatch(getSinglReposRequest(id))
 },[])
 
 const onBack = () => {
     history.goBack()
 }
-
+    
  return (
      <div className={styles.container}>
-        {isLoading ? <p>Loading...</p> : (
+        {!reposData.resultsFlag ? 
+        (<div>
+            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQXv2CnDyvkyhiBLXYcreFhuw9QRQk7l7nog&usqp=CAU' />
+        </div>) : (
         <div className= {styles.cards}>
-             <p className={styles.x} onClick={()=>onBack()}>X</p>
             <button className={styles.back} onClick={onBack}>Back</button>
-            <img className={styles.img}src={singleRepo.avatar_url} />
-           <p className={styles.name}>{singleRepo.login}</p>
+            <img className={styles.img} src={reposData.singleRepo?.owner?.avatar_url} />
+            <p className={styles.name}>{reposData.singleRepo?.name}</p>
         </div>
         )}
      </div>

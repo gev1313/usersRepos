@@ -7,14 +7,11 @@ import { getSinglUsersRequest } from "../../../store/action-creaters/usersAction
 import styles from "./SingleUser.module.css"
 
 const SingleUser=()=>{
-    const [ singleUser, setSingleUser] = useState({})
-    const [ isLoading, setIsLoading] = useState(false)
-    const { getSingleUserApi } = api
     const { id } = useParams()
     const history = useHistory()
     const dispatch = useDispatch()
     const usersData = useSelector(state => state.usersReducer)
-
+    console.log(usersData,5555555)
 useEffect( ()=> {
     dispatch(getSinglUsersRequest(id))
 },[])
@@ -22,8 +19,7 @@ useEffect( ()=> {
 const onBack = () => {
     history.goBack()
 }
-
-    console.log(singleUser);
+    
  return (
      <div className={styles.container}>
         {!usersData.resultsFlag ? 

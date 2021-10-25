@@ -9,31 +9,37 @@ import Users from './components/Users';
 import Repos from './components/Repos';
 import SingleUser from './components/sherd/SingleUser';
 import SingleRepo from './components/sherd/SingleRepo';
+import { ToastProvider, useToasts } from 'react-toast-notifications';
 
 function App() {
   return (
+    <ToastProvider >
     <Router>
       <Header />
         <Switch>
-        <Route path="/users/:id">
+          <Route path="/users/:id">
             <SingleUser />
           </Route>
           
-        <Route path="/repos/:id">
+          <Route path="/repos/:id">
             <SingleRepo />
           </Route>
+
           <Route exact path="/">
             <p>"tun"</p>
           </Route>
+
           <Route path="/users">
             <Users />
           </Route>
+          
           <Route path="/repos">
             <Repos/>
           </Route>
        
         </Switch>
     </Router>
+    </ToastProvider>
   );
 }
 

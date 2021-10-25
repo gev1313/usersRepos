@@ -11,8 +11,7 @@ const Header = () => {
                 <img className={styles.logo} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1QuIb1xbQ1LS2tZER49g_BD-Xq3GpsTj4zg&usqp=CAU'></img>
             </div>
            <div>
-               <Search type ="users"  />
-
+               <Search/>
            </div>
                 
             <div className={styles.ContainerButtonUsersRepos}>

@@ -4,9 +4,10 @@ import {Link} from "react-router-dom";
 import styles from "./Cards.module.css"
 
 const Cards = ({items, type}) => {
+    console.log(items,"555")
     return (
             items.map(item => (
-              <Link to={`${type}/${type === "users" ? item.id : item.full_name }`} className ={styles.cards}>
+              <Link to={`${type}/${type === "users" ? item.id : item.owner.login + "/" +  item.name }`} className ={styles.cards}>
                  <div >
                     <img src={item.avatar_url||item.owner.avatar_url} alt="User img" className={styles.img}/>
                     <p className={styles.name}>{item.login||item.name}</p>
